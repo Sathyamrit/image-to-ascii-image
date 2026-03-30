@@ -53,10 +53,10 @@ async def post_convert_root(request: Request) -> Response:
     return await _convert(request)
 
 
-@app.post("/api/convert")
+@app.post("/convert")
 async def post_convert_path(request: Request) -> Response:
     return await _convert(request)
 
-@app.post("/")
-async def post_convert_path(request: Request) -> Response:
-    return await _convert(request)
+# @app.post("/")
+# async def post_convert_path(request: Request) -> Response:
+#     return await _convert(request)
