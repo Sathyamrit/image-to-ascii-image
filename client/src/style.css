@@ -1,0 +1,160 @@
+/* Theme + layout for Image to ASCII UI */
+
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #ffffff;
+  --border: #e5e4e7;
+  --accent: #aa3bff;
+  --accent-bg: #aa3bff;
+  --accent-text: #ffffff;
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  font: 15px/1.5 var(--sans);
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #0f1014;
+    --border: #2e303a;
+    --accent: #c084fc;
+    --accent-bg: #c084fc;
+  }
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#page {
+  width: 100%;
+  max-width: 1200px;
+  padding: 40px 24px;
+}
+
+h1 {
+  font-weight: 600;
+  color: var(--text-h);
+  font-size: 32px;
+  letter-spacing: -0.02em;
+  margin: 0 0 32px 0;
+  text-align: left; /* Aligned with the input column */
+}
+
+#card {
+  display: flex;
+  flex-direction: row; /* Desktop: Side by side */
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Sidebar / Input Area */
+#inputs {
+  flex: 0 0 300px; /* Small and fixed width on left */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#inputs label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--text-h);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+input[type='url'],
+input[type='file'] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-h);
+  font: inherit;
+}
+
+#convertBtn {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent-bg);
+  color: var(--accent-text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+#convertBtn:hover { opacity: 0.9; }
+#convertBtn:disabled { opacity: 0.5; }
+
+/* Main Content / Output Area */
+#output {
+  flex: 1; /* Takes up remaining space on right */
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.02); /* Subtle contrast */
+  border-radius: 16px;
+  border: 1px dashed var(--border);
+  padding: 20px;
+}
+
+#outputHeader {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+#resultImg {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+#preview {
+  width: 100%;
+  text-align: left;
+}
+
+#preview img {
+  width: 100%;
+  border-radius: 6px;
+  margin-top: 5px;
+  border: 1px solid var(--border);
+}
+
+/* Phone Layout */
+@media (max-width: 768px) {
+  #card {
+    flex-direction: column; /* Inputs on top, Output on bottom */
+    gap: 32px;
+  }
+
+  #inputs {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 28px;
+  }
+}
