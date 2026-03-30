@@ -2,7 +2,7 @@
   "version": 2,
   "rewrites": [
     {
-      "source": "/api/convert",
+      "source": "/api/(.*)",
       "destination": "/api/convert.py"
     },
     {
